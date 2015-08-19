@@ -54,7 +54,6 @@ namespace Engine
 		void LogMessage(const char* fmt, ...);
 
 	private:
-		FILE* m_logFile;
 		PLogMessage m_LogDelegate;
 	};
 };
