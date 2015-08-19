@@ -232,10 +232,6 @@ namespace Engine
 
 	LogFile::~LogFile()
 	{
-		if(m_logFile != NULL) {
-			fflush(m_logFile);
-			fclose(m_logFile);
-		}
 	}
 
 	void LogFile::setLogMessageProvider(PLogMessage log)
