@@ -13,7 +13,7 @@ using namespace std;
 
 namespace Engine
 {
-	// 获取当前系统时间-毫秒表示
+	// get current system time-milli second
 	uint64_t getTimeNow()
 	{
 		uint64_t now = 0;
@@ -38,7 +38,7 @@ namespace Engine
 		return now;
 	}
 
-	// 获取当前系统时间-秒表示
+	// get current system time-second
 	int32_t getCurrentTime()
 	{
 		time_t curTime;
@@ -46,6 +46,7 @@ namespace Engine
 		return (int32_t)curTime;
 	}
 
+	// split string by delimiters
 	void splitString(const std::string& str, const std::string& delimiters, std::vector<std::string>& tokens)
 	{
 		// Skip delimiters at beginning. 
