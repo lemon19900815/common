@@ -23,6 +23,7 @@ public:
 
 Engine::Thread* pthread = new Engine::Thread(new NetWork());
 pthread->start();
+pthread->join(); // wait thread task over
 
 delete pthread;
 pthread = NULL;
