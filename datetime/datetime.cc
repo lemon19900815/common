@@ -76,7 +76,7 @@ bool DateTime::addYear(int year)
 */
 bool DateTime::addDay(int day)
 {
-  time_t t = unixstamp_ + day * oneDay();
+  time_t t = unixstamp_ + day * kOneDaySec;
 
   tm* tmp = localtime(&t);
   if (!tmp) return false;
@@ -92,7 +92,7 @@ bool DateTime::addDay(int day)
 */
 bool DateTime::addHour(int hour)
 {
-  time_t t = unixstamp_ + hour * oneHour();
+  time_t t = unixstamp_ + hour * kOneHourSec;
 
   tm* tmp = localtime(&t);
   if (!tmp) return false;
@@ -108,7 +108,7 @@ bool DateTime::addHour(int hour)
 */
 bool DateTime::addMinute(int min)
 {
-  time_t t = unixstamp_ + min * oneMinute();
+  time_t t = unixstamp_ + min * kOneMinuteSec;
 
   tm* tmp = localtime(&t);
   if (!tmp) return false;
@@ -221,10 +221,10 @@ bool DateTime::diffDay(time_t t1, time_t t2, time_t offset)
 {
   assert(t1 >= offset);
   assert(t2 >= offset);
-  assert(offset < oneDay());
+  assert(offset < kOneDaySec));
 
   time_t delta = difftime(t1, t2);
-  if (delta < oneDay())
+  if (delta < kOneDaySec)
   {
     t1 -= offset;
     t2 -= offset;
@@ -245,10 +245,10 @@ bool DateTime::diffWeek(time_t t1, time_t t2, time_t offset)
 {
   assert(t1 >= offset);
   assert(t2 >= offset);
-  assert(offset < oneDay());
+  assert(offset < kOneDaySec);
 
   time_t delta = difftime(t1, t2);
-  if (delta < oneWeek())
+  if (delta < kOneWeekSec)
   {
     t1 -= offset;
     t2 -= offset;
@@ -269,7 +269,7 @@ bool DateTime::diffMonth(time_t t1, time_t t2, time_t offset)
 {
   assert(t1 >= offset);
   assert(t2 >= offset);
-  assert(offset < oneDay());
+  assert(offset < kOneDaySec);
 
   t1 -= offset;
   t2 -= offset;
@@ -290,7 +290,7 @@ bool DateTime::diffYear(time_t t1, time_t t2, time_t offset)
 {
   assert(t1 >= offset);
   assert(t2 >= offset);
-  assert(offset < oneDay());
+  assert(offset < kOneDaySec);
 
   t1 -= offset;
   t2 -= offset;

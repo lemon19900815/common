@@ -5,6 +5,11 @@
 #include <iostream>
 #include <string>
 
+const int kOneMinuteSec = 60;
+const int kOneHourSec = 60 * kOneMinuteSec;
+const int kOneDaySec = 24 * kOneHourSec;
+const int kOneWeekSec = 7 * kOneDaySec;
+
 class DateTime
 {
 public:
@@ -98,34 +103,6 @@ public:
   * as datetime to a string with format[yyyy-mm-dd hh:mm:ss]
   */
   std::string asString();
-
-  /*
-  * one minute's seconds
-  */
-  static int oneMinute() {
-    return 60;
-  }
-
-  /*
-  * one hour's seconds
-  */
-  static int oneHour() {
-    return 60 * oneMinute();
-  }
-
-  /*
-  * one day's seconds
-  */
-  static int oneDay() {
-    return 24 * oneHour();
-  }
-
-  /*
-  * one week's seconds
-  */
-  static int oneWeek() {
-    return 7 * oneDay();
-  }
 
   /*
   * compare the two time is different day on offset
